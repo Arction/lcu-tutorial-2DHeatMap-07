@@ -122,7 +122,7 @@ namespace HeatMap_WPF_SB
             // 1.8 Add Heatmap to chart.
             // This is done in xaml side.
 
-            // Allow chart rendering.var
+            // Allow chart rendering.
             _chart.EndUpdate();
             
         }
