@@ -11,7 +11,7 @@ A heatmap is a matrix containing individual values which are presented as colors
 ```csharp
 // Create a Heatmap as IntensityGridSeries.
 var heatMap = new IntensityGridSeries(view, axisX, axisY);
-````
+```
 In order to present data values in the required colors, we need to create a *ValueRangePalette*. *ValueRangePalette* is used to define the colors for data coloring based on the values.
 
 #### 2. Create a ValueRangePalette for IntensityGridSeries.
