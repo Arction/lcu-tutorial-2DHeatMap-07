@@ -1,0 +1,32 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HeatMap_WPF_SB"
+        xmlns:lcusb="http://schemas.arction.com/semibindablecharting/ultimate/" x:Class="HeatMap_WPF_SB.MainWindow"
+        mc:Ignorable="d"
+        Title="LightningChart Tutorial - Simple 2D HeatMap" Height="450" Width="800">
+    <Grid>
+        <lcusb:LightningChartUltimate x:Name="_chart">
+            <lcusb:LightningChartUltimate.ViewXY>
+                <lcusb:ViewXY>
+                    <lcusb:ViewXY.LegendBoxes>
+                        <lcusb:LegendBoxXY>
+                        </lcusb:LegendBoxXY>
+                    </lcusb:ViewXY.LegendBoxes>
+                    <lcusb:ViewXY.XAxes>
+                        <lcusb:AxisX/>
+                    </lcusb:ViewXY.XAxes>
+                    <lcusb:ViewXY.YAxes>
+                        <lcusb:AxisY/>
+                    </lcusb:ViewXY.YAxes>
+                    <lcusb:ViewXY.IntensityGridSeries>
+                        <lcusb:IntensityGridSeries x:Name="_heatMap">
+                        </lcusb:IntensityGridSeries>
+                    </lcusb:ViewXY.IntensityGridSeries>
+                </lcusb:ViewXY>
+            </lcusb:LightningChartUltimate.ViewXY>
+        </lcusb:LightningChartUltimate>
+    </Grid>
+</Window>

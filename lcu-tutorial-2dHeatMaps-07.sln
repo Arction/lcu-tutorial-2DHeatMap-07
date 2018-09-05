@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DHeatMap_WF", "2DHeatMap_Tutorial_WinForms\2D HeatMap Tutorial\2DHeatMap_WF.csproj", "{8BD3F8CD-BC68-4DA6-B61C-E8F3B1827511}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DHeatMap_WPF_NB", "2DHeatMap_Tutorial_WPF_NB\2D HeatMap WPF Tutorial\2DHeatMap_WPF_NB.csproj", "{178D6D0F-B356-41F7-83A3-D6ECDF94367A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DHeatMap_WPF_SB", "2DHeatMap_Tutorial_WPF_SB\2DHeatMap_WPF_SB\2DHeatMap_WPF_SB.csproj", "{AADADE8E-9602-493C-A97D-15CB1651AF83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BD3F8CD-BC68-4DA6-B61C-E8F3B1827511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD3F8CD-BC68-4DA6-B61C-E8F3B1827511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD3F8CD-BC68-4DA6-B61C-E8F3B1827511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD3F8CD-BC68-4DA6-B61C-E8F3B1827511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{178D6D0F-B356-41F7-83A3-D6ECDF94367A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{178D6D0F-B356-41F7-83A3-D6ECDF94367A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{178D6D0F-B356-41F7-83A3-D6ECDF94367A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{178D6D0F-B356-41F7-83A3-D6ECDF94367A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AADADE8E-9602-493C-A97D-15CB1651AF83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AADADE8E-9602-493C-A97D-15CB1651AF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AADADE8E-9602-493C-A97D-15CB1651AF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AADADE8E-9602-493C-A97D-15CB1651AF83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00C37463-6A33-47FB-AA80-06FAC3833A6B}
+	EndGlobalSection
+EndGlobal
