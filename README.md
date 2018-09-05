@@ -2,7 +2,7 @@
 
 With *LightningChart* you can create different types of charts for various use cases. Previous tutorials have demonstrated how to create a [Simple 2D Chart](https://www.arction.com/tutorials/#/lcu_tutorial_simple2Dchart_01), a chart with [Multiple Series](https://www.arction.com/tutorials/#/lcu_tutorial_multipleSeries_02), a chart with [Multiple Axes](https://www.arction.com/tutorials/#/lcu_tutorial_multipleAxes_03) and a [StockSeries](https://www.arction.com/tutorials/#/lcu_tutorial_stockSeries_06) chart with Financial Data. In this tutorial, we will show how to create a Simple 2D Heatmap.
 
-![](./assets/Tutorial_HeatMap.png)
+![](./assets/Tutorial_HeatMap.PNG)
 
 A heatmap is a matrix containing individual values which are presented as colors. In data visualization, heatmaps can be utilized to provide visual content and feedback about data values through variations in coloring. For this tutorial, we recommend you create a new Windows Forms or WPF application. *LightningChart* offers two methods for creating heatmaps - *IntensityGridSeries* and *IntensityMeshSeries*. *IntensityGrid* is evenly-spaced, rectangular series in X and Y space which allows visualization of M x N array of nodes. *IntensityMesh* is similar to the *IntensityGrid*, but in *IntensityMesh*, series does not need to be rectangular, while series nodes can be positioned arbitrarily in the X and Y space. For this tutorial, we are using the *IntensityGridSeries*.
 
