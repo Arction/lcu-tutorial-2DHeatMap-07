@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Arction.WinForms.Charting.LightningChartUltimate">
-      <HintPath>..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.WinForms.Charting.LightningChartUltimate.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\LightningChart\Main\v84_main\LibNET4\Arction.WinForms.Charting.LightningChartUltimate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -1,16 +1,16 @@
-# Simple 2D Heatmap Chart
+# Simple 2D Heat Map Chart
 
-With *LightningChart* you can create different types of charts for various use cases. Previous tutorials have demonstrated how to create a [Simple 2D Chart](https://www.arction.com/tutorials/#/lcu_tutorial_simple2Dchart_01), a chart with [Multiple Series](https://www.arction.com/tutorials/#/lcu_tutorial_multipleSeries_02), a chart with [Multiple Axes](https://www.arction.com/tutorials/#/lcu_tutorial_multipleAxes_03) and a [StockSeries](https://www.arction.com/tutorials/#/lcu_tutorial_stockSeries_06) chart with Financial Data. In this tutorial, we will show how to create a Simple 2D Heatmap.
+With *LightningChart* you can create different types of charts for various use-cases. Previous tutorials have demonstrated how to create simple 2D charts with multiple line-series and axes, area-series and bar-series. In this tutorial, we will show how to create a Simple 2D Heat Map using *IntensityGridSeries*.
 
-![](./assets/Tutorial_HeatMap.PNG)
+![](./assets/chart-heatmap-2d-winforms-wpf.png)
 
-A heatmap is a matrix containing individual values which are presented as colors. In data visualization, heatmaps can be utilized to provide visual content and feedback about data values through variations in coloring. For this tutorial, we recommend you create a new Windows Forms or WPF application. *LightningChart* offers two methods for creating heatmaps - *IntensityGridSeries* and *IntensityMeshSeries*. *IntensityGrid* is evenly-spaced, rectangular series in X and Y space which allows visualization of M x N array of nodes. *IntensityMesh* is similar to the *IntensityGrid*, but in *IntensityMesh*, series does not need to be rectangular, while series nodes can be positioned arbitrarily in the X and Y space. For this tutorial, we are using the *IntensityGridSeries*.
+A Heat Map is a matrix containing individual values which are presented as colors. In data visualization, Heat Maps can be utilized to provide visual content and feedback about data values through variations in coloring. For this tutorial, we recommend you create a new WinForms or WPF application. *LightningChart* offers two methods for creating Heat Maps - *IntensityGridSeries* and *IntensityMeshSeries*. *IntensityGrid* is evenly-spaced, rectangular series in X and Y space which allows visualization of M x N array of nodes. *IntensityMesh* is similar to the *IntensityGrid*, but in *IntensityMesh*, series does not need to be rectangular, while series nodes can be positioned arbitrarily in the X and Y space. For this tutorial, we are using the *IntensityGridSeries*.
 
-##### 1. Create a Heatmap instance as IntensityGridSeries.
+##### 1. Create a Heat Map instance as IntensityGridSeries.
 
 ```csharp
-// Create a Heatmap as IntensityGridSeries.
-var heatMap = new IntensityGridSeries(view, axisX, axisY);
+// Create a Heat Map as IntensityGridSeries.
+var heatMap = new IntensityGridSeries(_chart.ViewXY, axisX, axisY);
 ```
 In order to present data values in the required colors, we need to create a *ValueRangePalette*. *ValueRangePalette* is used to define the colors for data coloring based on the values.
 
@@ -35,9 +35,9 @@ foreach (var step in palette.Steps)
 palette.Steps.Clear();
 ```
 
-Then we need to set colors for our palette together with *PaletteType*. You can define colors using *System.Windows.Media.Color* or *System.Drawing.Color* depending on whether you are using WPF or WindowsForms. *PaletteType* defines how the palette coloring will look in your application.
+Then we need to set colors for our palette together with *PaletteType*. You can define colors using *System.Windows.Media.Color* or *System.Drawing.Color* depending on whether you are using WPF or WinForms. *PaletteType* defines how the palette coloring will look in your application.
 
-![](./assets/TutorialLegends.png)
+![](./assets/chart-heatmap-legendbox-2d-winforms-wpf.png)
 
 For this example, we are setting *PaletteType* to *Gradient*.
 
@@ -45,7 +45,7 @@ For this example, we are setting *PaletteType* to *Gradient*.
 
 ```csharp
 // Add steps into palette. 
-// Palette is used for presenting data in Heatmap with different colors based on their value.
+// Palette is used for presenting data in Heat Map with different colors based on their value.
 palette.Steps.Add(new PaletteStep(palette, Color.FromRgb(0, 0, 255), -25));
 palette.Steps.Add(new PaletteStep(palette, Color.FromRgb(20, 150, 255), 0));
 palette.Steps.Add(new PaletteStep(palette, Color.FromRgb(0, 255, 0), 25));
@@ -56,21 +56,22 @@ palette.Type = PaletteType.Gradient;
 palette.MinValue = -50;
 ```
 
-You can add data to Heatmap by using *IntensityPoints*. *IntensityPoints* are datapoints for Intensity series. In this example, we fill our IntensityGrid with values as *IntensityPoints* which are colored with the *ValueRangePalette*.
+You can add data to Heat Map by using *IntensityPoints*. *IntensityPoints* are datapoints for Intensity series. In this example, we fill our IntensityGrid with values as *IntensityPoints* which are colored with the *ValueRangePalette*.
 
-##### 5. Set data to chart.
+##### 5. Generate data for Heat Map.
 
 ```csharp
-// Update chart's contents.
-public void UpdateHeatmap(int columns, int rows)
+// Generate data.
+public void GenerateData(int columns, int rows)
 {
     // Create new IntensityPoint series for data.
     var data = new IntensityPoint[_columns, _rows];
 
-    // Disable rendering before chart updates.
+    // Disable rendering before updating chart properties to improve performance
+    // and to prevent unnecessary chart redrawing while changing multiple properties.
     _chart.BeginUpdate();
 
-    // Set data values and add them to Heatmap.
+    // Set data values and add them to Heat Map.
     for (int i = 0; i < _columns; i++)
     {
         for (int j = 0; j < _rows; j++)
@@ -80,13 +81,10 @@ public void UpdateHeatmap(int columns, int rows)
         }
     }
 
-    // Add generated data as Heatmap data.
+    // Add generated data as Heat Map data.
     _heatMap.Data = data;
 
-    // Notify chart about updated data.
-    _heatMap.InvalidateValuesDataOnly();
-
-    // Allow rendering.
+    // Call EndUpdate to enable rendering again.
     _chart.EndUpdate();
 }
 ```

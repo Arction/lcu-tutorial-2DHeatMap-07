@@ -1,5 +1,5 @@
 ﻿// ------------------------------------------------------------------------------------------------------
-// LightningChart® example code:  Simple 2D Heatmap Chart Demo
+// LightningChart® example code:  Simple 2D Heat Map Chart Demo.
 //
 // If you need any assistance, or notice error in this example code, please contact support@arction.com. 
 //
@@ -7,17 +7,15 @@
 //
 // http://arction.com/ | support@arction.com | sales@arction.com
 //
-// © Arction Ltd 2009-2018. All rights reserved.  
+// © Arction Ltd 2009-2019. All rights reserved.  
 // ------------------------------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-//Arction namespaces
+// Arction namespaces.
 using Arction.WinForms.Charting;            // LightningChartUltimate and general types.
-using Arction.WinForms.Charting.Axes;       // Axes.
 using Arction.WinForms.Charting.SeriesXY;   // Series for 2D chart.
 
 namespace HeatMap_WF
@@ -35,32 +33,32 @@ namespace HeatMap_WF
         private IntensityGridSeries _heatMap = null;
 
         /// <summary>
-        /// Heatmap rows.
+        /// Heat Map rows.
         /// </summary>
         int _rows = 500;
 
         ///<summary>
-        /// Heatmap columns.
+        /// Heat Map columns.
         ///</summary>
         int _columns = 500;
 
         /// <summary>
-        /// Minimum Y axis value.
+        /// Minimum Y-axis value.
         /// </summary>
         private const int MinY = 0;
 
         /// <summary>
-        /// Maximum Y axis value.
+        /// Maximum Y-axis value.
         /// </summary>
         private const int MaxY = 480;
 
         /// <summary>
-        /// Minimum X axis value.
+        /// Minimum X-axis value.
         /// </summary>
         private const int MinX = 0;
 
         /// <summary>
-        /// Maximum X axis value.
+        /// Maximum X-axis value.
         /// </summary>
         private const int MaxX = 640;
 
@@ -68,13 +66,13 @@ namespace HeatMap_WF
         {
             InitializeComponent();
 
-            // 1. Create chart instance.
+            // Create chart.
             CreateChart();
 
-            // 2. Update chart's contents.
-            UpdateHeatmap(_columns, _rows);
+            // Generate data.
+            GenerateData(_columns, _rows);
 
-            // 3. Safe disposal of LC components when the form is closed.
+            // Safe disposal of LightningChart components when the form is closed.
             FormClosed += new FormClosedEventHandler(Form_Closed);
 
             #region Hidden polishing
@@ -83,64 +81,65 @@ namespace HeatMap_WF
             #endregion
         }
 
-        // 1. Create chart instance.
+        // Create chart.
         public void CreateChart()
         {
-            // 1.1 Create chart instance and store it member variable.
+            // Create chart.
             _chart = new LightningChartUltimate();
 
-            // 1.2 Set chart control into the parent container.
+            // Set chart control into the parent container.
             _chart.Parent = this;
             _chart.Dock = DockStyle.Fill;
 
-            // Create variable for view from ViewXY.
-            var view = _chart.ViewXY;
-
-            // Disable rendering before chart updates.
+            // Disable rendering before updating chart properties to improve performance
+            // and to prevent unnecessary chart redrawing while changing multiple properties.
             _chart.BeginUpdate();
 
-            // 1.3 Set a LegendBox into a chart with vertical layout.
-            view.LegendBoxes[0].Layout = LegendBoxLayout.Vertical;
+            // Set a LegendBox into a chart with vertical layout.
+            _chart.ViewXY.LegendBoxes[0].Layout = LegendBoxLayout.Vertical;
 
-            // 1.4 Define X and Y axis for the chart.
-            var axisX = view.XAxes[0];
-            var axisY = view.YAxes[0];
+            // Configure X- and Y-axis.
+            var axisX = _chart.ViewXY.XAxes[0];
+            var axisY = _chart.ViewXY.YAxes[0];
             axisX.Title.Text = "X-Axis Position";
             axisX.SetRange(MinX, MaxX);
             axisY.Title.Text = "Y-Axis Position";
             axisY.SetRange(MinY, MaxY);
 
-            // 1.5 Create a Heatmap instance as IntensityGridSeries.
-            _heatMap = new IntensityGridSeries(view, axisX, axisY);
+            // 1. Create a Heat Map instance as IntensityGridSeries.
+            _heatMap = new IntensityGridSeries(_chart.ViewXY, axisX, axisY);
 
-            // 1.6 Set HeapMap's contents and properties.
+            // Set Heat Map's contents and properties.
             _heatMap.LegendBoxUnits = "°C";
-            _heatMap.Title.Text = "Heat map";
+            _heatMap.Title.Text = "Heat Map";
             _heatMap.MouseInteraction = false;
             _heatMap.PixelRendering = false;
             _heatMap.SetRangesXY(MinX, MaxX, MinY, MaxY);
             _heatMap.SetSize(_columns, _rows);
 
-            // 1.7 Create a ValueRangePalette to present Heatmap's data.
+            // Create a ValueRangePalette to present Heat Map's data.
             if (_heatMap.ValueRangePalette != null)
                 _heatMap.ValueRangePalette.Dispose();
             _heatMap.ValueRangePalette = CreatePalette(_heatMap);
 
-            // 1.8 Add Heatmap to chart.
-            view.IntensityGridSeries.Add(_heatMap);
+            // Add Heat Map to chart.
+            _chart.ViewXY.IntensityGridSeries.Add(_heatMap);
 
-            // Allow chart rendering.
+            // Auto-scale X- and Y-axes.
+            _chart.ViewXY.ZoomToFit();
+
+            // Call EndUpdate to enable rendering again.
             _chart.EndUpdate();
 
         }
 
-        // 1.7 Create a ValueRangePalette to present Heatmap's data.
+        // Create a ValueRangePalette to present Heat Map's data.
         private ValueRangePalette CreatePalette(IntensityGridSeries series)
         {
-            // Creating palette for IntensityGridSeries.
+            // 2. Creating palette for IntensityGridSeries.
             var palette = new ValueRangePalette(series);
 
-            // LightningChart has some preset values for palette steps.
+            // 3. LightningChart has some preset values for palette steps.
             // Clear the preset values from palette before setting new ones.
             foreach (var step in palette.Steps)
             {
@@ -148,8 +147,8 @@ namespace HeatMap_WF
             }
             palette.Steps.Clear();
 
-            // Add steps into palette. 
-            // Palette is used for presenting data in Heatmap with different colors based on their value.
+            // 4. Add steps into palette. 
+            // Palette is used for presenting data in Heat Map with different colors based on their value.
             palette.Steps.Add(new PaletteStep(palette, Color.Blue, -25));
             palette.Steps.Add(new PaletteStep(palette, Color.DodgerBlue, 0));
             palette.Steps.Add(new PaletteStep(palette, Color.LawnGreen, 25));
@@ -163,16 +162,17 @@ namespace HeatMap_WF
             return palette;
         }
 
-        // 2. Update chart's contents.
-        public void UpdateHeatmap(int columns, int rows)
+        // 5. Generate data.
+        public void GenerateData(int columns, int rows)
         {
             // Create new IntensityPoint series for data.
             var data = new IntensityPoint[_columns, _rows];
 
-            // Disable rendering before chart updates.
+            // Disable rendering before updating chart properties to improve performance
+            // and to prevent unnecessary chart redrawing while changing multiple properties.
             _chart.BeginUpdate();
 
-            // Set data values and add them to Heatmap.
+            // Set data values and add them to Heat Map.
             for (int i = 0; i < _columns; i++)
             {
                 for (int j = 0; j < _rows; j++)
@@ -182,22 +182,22 @@ namespace HeatMap_WF
                 }
             }
 
-            // Add generated data as Heatmap data.
+            // Add generated data as Heat Map data.
             _heatMap.Data = data;
 
-            // Allow rendering.
+            // Call EndUpdate to enable rendering again.
             _chart.EndUpdate();
 
         }
 
-        // 3. Safe disposal of LC components when the form is closed.
+        // Safe disposal of LightningChart components when the form is closed.
         private void Form_Closed(Object sender, FormClosedEventArgs e)
         {
             // Dispose Chart.
             _chart.Dispose();
             _chart = null;
 
-            // Dispose Heatmap.
+            // Dispose Heat Map.
             _heatMap.Dispose();
             _heatMap = null;
 

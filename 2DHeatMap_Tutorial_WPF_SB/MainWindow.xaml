@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HeatMap_WPF_SB"
         xmlns:lcusb="http://schemas.arction.com/semibindablecharting/ultimate/" x:Class="HeatMap_WPF_SB.MainWindow"
         mc:Ignorable="d"
-        Title="LightningChart Tutorial - Simple 2D HeatMap" Height="450" Width="800">
+        Title="LightningChart Tutorial - Simple 2D Heat Map" Height="450" Width="800">
     <Grid>
         <lcusb:LightningChartUltimate x:Name="_chart">
             <lcusb:LightningChartUltimate.ViewXY>

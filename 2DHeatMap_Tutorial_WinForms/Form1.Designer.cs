@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Form1";
-            this.Text = "LightningChart Tutorial  - Simple 2D HeatMap";
+            this.Text = "LightningChart Tutorial  - Simple 2D Heat Map";
             this.ResumeLayout(false);
 
         }

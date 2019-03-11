@@ -35,31 +35,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Arction.DirectX">
-      <HintPath>..\..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.DirectX.dll</HintPath>
-    </Reference>
-    <Reference Include="Arction.DirectXFiles">
-      <HintPath>..\..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.DirectXFiles.dll</HintPath>
-    </Reference>
-    <Reference Include="Arction.DirectXInit">
-      <HintPath>..\..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.DirectXInit.dll</HintPath>
-    </Reference>
-    <Reference Include="Arction.Licensing">
-      <HintPath>..\..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.Licensing.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\LightningChart\Main\v84_main\LibNET4\Arction.DirectX.dll</HintPath>
     </Reference>
     <Reference Include="Arction.RenderingDefinitions">
-      <HintPath>..\..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.RenderingDefinitions.dll</HintPath>
-    </Reference>
-    <Reference Include="Arction.RenderingEngine">
-      <HintPath>..\..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.RenderingEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="Arction.RenderingEngine11">
-      <HintPath>..\..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.RenderingEngine11.dll</HintPath>
-    </Reference>
-    <Reference Include="Arction.RenderingEngine9">
-      <HintPath>..\..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.RenderingEngine9.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\LightningChart\Main\v84_main\LibNET4\Arction.RenderingDefinitions.dll</HintPath>
     </Reference>
     <Reference Include="Arction.Wpf.Charting.LightningChartUltimate">
-      <HintPath>..\..\..\..\..\..\..\LightningChart\Main\v84EditThis\LibNET4\Arction.Wpf.Charting.LightningChartUltimate.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\LightningChart\Main\v84_main\LibNET4\Arction.Wpf.Charting.LightningChartUltimate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
