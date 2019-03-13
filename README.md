@@ -1,4 +1,4 @@
-# Simple 2D Heat Map Chart
+# 2D Heat Map Chart
 
 With *LightningChart* you can create different types of charts for various use-cases. Previous tutorials have demonstrated how to create simple 2D charts with multiple line-series and axes, area-series and bar-series. In this tutorial, we will show how to create a Simple 2D Heat Map using *IntensityGridSeries*.
 
