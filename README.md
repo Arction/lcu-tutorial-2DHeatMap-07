@@ -37,7 +37,7 @@ palette.Steps.Clear();
 
 Then we need to set colors for our palette together with *PaletteType*. You can define colors using *System.Windows.Media.Color* or *System.Drawing.Color* depending on whether you are using WPF or WinForms. *PaletteType* defines how the palette coloring will look in your application.
 
-![](./assets/chart-heatmap-legendbox-2d-winforms-wpf.png)
+![legendboxes with different palette types winforms wpf](./assets/chart-heatmap-legendbox-2d-winforms-wpf.png)
 
 For this example, we are setting *PaletteType* to *Gradient*.
 
