@@ -1,5 +1,5 @@
 ﻿// ------------------------------------------------------------------------------------------------------
-// LightningChart® example code:  Simple 2D Heat Map Chart Demo.
+// LightningChart® example code: 2D Heat Map Chart Demo.
 //
 // If you need any assistance, or notice error in this example code, please contact support@arction.com. 
 //
@@ -74,11 +74,6 @@ namespace HeatMap_WF
 
             // Safe disposal of LightningChart components when the form is closed.
             FormClosed += new FormClosedEventHandler(Form_Closed);
-
-            #region Hidden polishing
-            // Customize chart.
-            CustomizeChart(_chart);
-            #endregion
         }
 
         // Create chart.
@@ -127,6 +122,11 @@ namespace HeatMap_WF
 
             // Auto-scale X- and Y-axes.
             _chart.ViewXY.ZoomToFit();
+
+            #region Hidden polishing
+            // Customize chart.
+            CustomizeChart(_chart);
+            #endregion
 
             // Call EndUpdate to enable rendering again.
             _chart.EndUpdate();
